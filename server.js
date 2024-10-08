@@ -12,6 +12,12 @@ app.use((req, res, next) => {
   next({ status: 404, message: "Sorry, this doesn't exist." });
 });
 
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(err.status ?? 500);
+  res.json(err.message ?? "Sorry, something broke :(");
+});
+
 app.listen(PORT, () => {
   `Listening on port ${PORT}...`;
 });

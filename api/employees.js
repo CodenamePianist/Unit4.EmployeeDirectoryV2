@@ -24,3 +24,5 @@ router.get("/:id", (req, res, next) => {
     res.status(404).send(`There is no employee with id ${id}.`);
   }
 });
+
+router.post("/", (req, res));
