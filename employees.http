@@ -21,7 +21,7 @@ POST {{host}}/employees
 Content-Type: application/json
 
 {
-    "name": "Trixie Mattel"
+    "name": "Sailor Vegeta"
 }
 
 ### Fail to add employee
