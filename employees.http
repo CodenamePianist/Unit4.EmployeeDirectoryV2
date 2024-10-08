@@ -15,3 +15,19 @@ GET {{host}}/employees/123
 
 ### Get random employee
 GET {{host}}/employees/random
+
+### Add new employee
+POST {{host}}/employees
+Content-Type: application/json
+
+{
+    "name": "Sailor Vegeta"
+}
+
+### Fail to add employee
+POST {{host}}/employees
+Content-Type: application/application/json
+
+{
+    "nam": "Katya Zamo"
+}
