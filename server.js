@@ -17,14 +17,18 @@ app.get("/employees/random", (req, res) => {
   res.json(employees[i]);
 });
 
-app.get("/employees/:id", (req, res) => {
+app.get("/employees/:id", (req, res, next) => {
   const { id } = req.params;
   const employee = employees.find((e) => e.id === +id);
   if (employee) {
     res.json(employee);
   } else {
-    res.status(404).send(`There is no employee with id ${id}.`);
+    next({ status: 404, message: `There is no employee with id ${id}.` });
   }
+});
+
+app.use((req, res, next) => {
+  next({ status: 404, message: "Sorry, this doesn't exist." });
 });
 
 app.listen(PORT, () => {
